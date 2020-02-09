@@ -3,14 +3,25 @@
 
 <h3>CreateMovie</h3>
 
-<button class="btn btn-primary" @onclick="SaveMovie">Save Movie</button>
+<MovieForm Movie="Movie" OnValidSubmit="SaveMovie" NotSelectedGenres="NotSelectedGenres"/>
 
 @code {
+
+
+    private Movie Movie = new Movie();
+
+    private List<Genre> NotSelectedGenres = new List<Genre>()
+    {
+        new Genre() {Id = 1, Name = "Action"},
+        new Genre() {Id = 2, Name = "Comedy"},
+        new Genre() {Id = 3, Name = "Drama"},
+    };
+
     private void SaveMovie()
     {
-        //...Saving movie
-        Console.WriteLine(navigationManager.Uri); 
-        navigationManager.NavigateTo("movie");
+        Console.WriteLine("Saving Movie");
+        //...Saving movie        
+        //navigationManager.NavigateTo("movie");
     }
 
 }
